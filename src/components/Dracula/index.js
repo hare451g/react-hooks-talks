@@ -1,29 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-class Dracula extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isNightAlready: false
-    };
-  }
+function Dracula(props) {
+  const [isNightAlready, setNight] = useState(false);
 
-  handleNightToggle = () => {
-    this.setState(prevState => ({
-      isNightAlready: !prevState.isNightAlready
-    }));
-  };
-
-  render() {
-    return (
-      <>
-        <h1>{this.state.isNightAlready ? '🧛‍♂️' : '🙍‍♂️'}</h1>
-        <button onClick={this.handleNightToggle}>
-          {this.state.isNightAlready ? 'set to day 🌞' : 'set to night 🌙'}
-        </button>
-      </>
-    );
-  }
+  return (
+    <>
+      <h1>{isNightAlready ? '🧛‍♂️' : '🙍‍♂️'}</h1>
+      <button onClick={() => setNight(!isNightAlready)}>
+        {isNightAlready ? 'set to day 🌞' : 'set to night 🌙'}
+      </button>
+    </>
+  );
 }
 
 export default Dracula;
