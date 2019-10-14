@@ -3,3 +3,27 @@ html {
   background-color: #282a36;
   color: #f8f8f2;
 }
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+h1 {
+  text-align: center;
+  font-size: 5rem;
+}
+
+button {
+  min-height: 2.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 16px 16px;
+  background-color: #ff79c6;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+}

@@ -1,12 +1,11 @@
 import React from 'react';
 
-import Greeter from '../../components/Greeter';
+import Dracula from '../../components/Dracula';
 
 function App(props) {
   return (
     <>
-      <Greeter />
-      <Greeter name="hendra" />
+      <Dracula />
     </>
   );
 }
