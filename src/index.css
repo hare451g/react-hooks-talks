@@ -27,3 +27,61 @@ button {
   border-radius: 8px;
   font-weight: 600;
 }
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field > label {
+  font-size: 1.2rem;
+  margin: 16px 0px;
+}
+
+.form-field > input {
+  font-size: 1.4rem;
+  font-family: 'Inconsolata', monospace;
+  margin: 16px 0px;
+  height: 2.25rem;
+  background-color: #282a36;
+  border: none;
+  border-bottom: solid 1px #ff79c6;
+  color: #f8f8f2;
+  padding: 8px 8px;
+}
+
+input:-internal-autofill-selected {
+  font-size: 1.4rem;
+  font-family: 'Inconsolata', monospace;
+  margin: 16px 0px;
+  height: 2.25rem;
+  background-color: #282a36;
+  border: none;
+  border-bottom: solid 1px #ff79c6;
+  color: #f8f8f2;
+  padding: 8px 8px;
+}
+
+input:focus {
+  outline: none;
+}
+
+form > button {
+  cursor: pointer;
+  width: 100%;
+  margin: 8px 0px;
+}
+
+form > button.outline {
+  border: #ff79c6 solid 1px;
+  border-radius: 8px;
+  color: #ff79c6;
+  background-color: #282a36;
+}
+
+form > button.outline:hover {
+  border: #ff79c6 solid 1px;
+  border-radius: 8px;
+  color: #f8f8f2;
+  background-color: #ff79c6;
+}
