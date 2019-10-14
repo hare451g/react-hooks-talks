@@ -1,7 +1,14 @@
 import React from 'react';
 
+import Greeter from '../../components/Greeter';
+
 function App(props) {
-  return <h1>Hello</h1>;
+  return (
+    <>
+      <Greeter />
+      <Greeter name="hendra" />
+    </>
+  );
 }
 
 export default App;
