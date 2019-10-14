@@ -7,6 +7,7 @@ function LoginForm(props) {
   const [password, setPassword] = useHandleChange(null);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+
   const onSubmit = e => {
     e.preventDefault();
     setIsSubmitting(true);
