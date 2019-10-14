@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
 
 function LoginForm(props) {
-  const [username, setUsername] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const useHandleChange = initialValue => {
+    const [value, setValue] = useState(initialValue);
+    const onChange = e => {
+      setValue(e.target.value);
+    };
+    return [value, onChange];
+  };
 
+  const [username, setUsername] = useHandleChange(null);
+  const [password, setPassword] = useHandleChange(null);
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const onSubmit = e => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -23,7 +31,7 @@ function LoginForm(props) {
           name="username"
           type="text"
           value={username}
-          onChange={e => setUsername(e.target.value)}
+          onChange={setUsername}
           disabled={isSubmitting}
         />
       </div>
@@ -34,7 +42,7 @@ function LoginForm(props) {
           name="password"
           type="password"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={setPassword}
           disabled={isSubmitting}
         />
       </div>
