@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
 
-function LoginForm(props) {
-  const useHandleChange = initialValue => {
-    const [value, setValue] = useState(initialValue);
-    const onChange = e => {
-      setValue(e.target.value);
-    };
-    return [value, onChange];
-  };
+import useHandleChange from '../../hooks/useHandleChange';
 
+function LoginForm(props) {
   const [username, setUsername] = useHandleChange(null);
   const [password, setPassword] = useHandleChange(null);
 
