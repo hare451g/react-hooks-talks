@@ -1,68 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: null,
-      password: null,
-      isSubmitting: false
-    };
-  }
+function LoginForm(props) {
+  const [username, setUsername] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-
-  onSubmit = e => {
+  const onSubmit = e => {
     e.preventDefault();
-    this.setState({ isSubmitting: true });
+    setIsSubmitting(true);
 
     // mock request
     setTimeout(() => {
-      this.setState({
-        isSubmitting: false
-      });
+      setIsSubmitting(false);
     }, 5000);
   };
 
-  render() {
-    return (
-      <form>
-        <div className="form-field">
-          <label for="username">Username</label>
-          <input
-            name="username"
-            type="text"
-            value={this.state.username}
-            onChange={this.handleChange}
-            disabled={this.state.isSubmitting}
-          />
-        </div>
+  return (
+    <form>
+      <div className="form-field">
+        <label for="username">Username</label>
+        <input
+          name="username"
+          type="text"
+          value={username}
+          onChange={e => setUsername(e.target.value)}
+          disabled={isSubmitting}
+        />
+      </div>
 
-        <div className="form-field">
-          <label for="password">Password</label>
-          <input
-            name="password"
-            type="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-            disabled={this.state.isSubmitting}
-          />
-        </div>
+      <div className="form-field">
+        <label for="password">Password</label>
+        <input
+          name="password"
+          type="password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          disabled={isSubmitting}
+        />
+      </div>
 
-        <button
-          onClick={this.onSubmit}
-          type="submit"
-          disabled={this.state.isSubmitting}
-        >
-          {this.state.isSubmitting ? 'Logging in . . . ' : 'Login'}
-        </button>
-      </form>
-    );
-  }
+      <button onClick={onSubmit} type="submit" disabled={isSubmitting}>
+        {isSubmitting ? 'Logging in . . . ' : 'Login'}
+      </button>
+    </form>
+  );
 }
 
 export default LoginForm;
